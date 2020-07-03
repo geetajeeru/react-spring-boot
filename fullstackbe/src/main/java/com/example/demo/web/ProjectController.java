@@ -2,6 +2,7 @@ package com.example.demo.web;
 
 import com.example.demo.domain.Project;
 import com.example.demo.services.ProjectService;
+import com.example.demo.services.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,14 +24,15 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private ValidationService validationService;
+
     @PostMapping("")
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result) {
-        if(result.hasErrors()) {
-            Map<String, String> errorMap = new HashMap<>();
-            for(FieldError error: result.getFieldErrors()) {
-                errorMap.put(error.getField(), error.getDefaultMessage());
-            }
-            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+
+        ResponseEntity<?> errorMap = validationService.mapValidations(result);
+        if(errorMap != null) {
+            return errorMap;
         }
         projectService.saveOrUpdate(project);
         return new ResponseEntity<Project>(project, HttpStatus.CREATED);
