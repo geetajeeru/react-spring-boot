@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {addProjectTask} from "../../../actions/backlogActions";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import classnames from "classnames";
+import classNames from "classnames";
 
 class AddProjectTask extends Component {
     constructor(props){
