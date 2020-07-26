@@ -7,12 +7,12 @@ export const addProjectTask = (backlogId, projectTask, history) => async dispatc
         history.push(`/projectBoard/${backlogId}`);
         dispatch({
             type: GET_ERRORS,
-            errors: {}
+            payload: {}
         });
     }catch(error){
         dispatch({
             type: GET_ERRORS,
-            errors: error.response.data
+            payload: error.response.data
         });
     }
 };
@@ -27,7 +27,7 @@ export const getBacklog = (backlogId) => async dispatch => {
     }catch(error) {
         dispatch({
             type: GET_ERRORS,
-            errors: error.response.data
+            payload: error.response.data
         });
     }
 };
@@ -50,12 +50,12 @@ export const updateProjectTask = (backlogId, pt_id, projectTask,history) => asyn
         history.push(`/projectBoard/${backlogId}`);
         dispatch({
             type: GET_ERRORS,
-            errors: {}
+            payload: {}
         });
     }catch(error) {
         dispatch({
             type: GET_ERRORS,
-            errors: error.response.data
+            payload: error.response.data
         });
     }
 };
