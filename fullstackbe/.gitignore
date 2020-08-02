@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/fullstackbe.eml
+/src/main/java/META-INF/MANIFEST.MF
