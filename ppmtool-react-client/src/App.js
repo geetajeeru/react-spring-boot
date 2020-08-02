@@ -11,6 +11,9 @@ import UpdateProject from './components/project/UpdateProject';
 import ProjectBoard from './components/projectboard/ProjectBoard';
 import AddProjectTask from './components/projectboard/projecttasks/AddProjectTask';
 import UpdateProjectTask from './components/projectboard/projecttasks/UpdateProjectTask';
+import Home from './components/layout/Home';
+import Register from './components/user/Register';
+import Login from './components/user/Login';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
       <Router>
         <div className="App">
           <Header/>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/register" component={Register}/>
+          <Route exact path="/login" component={Login}/>
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/addProject" component={AddProject}/>
           <Route exact path="/updateProject/:id" component={UpdateProject}/>
