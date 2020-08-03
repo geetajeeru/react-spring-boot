@@ -48,4 +48,12 @@ export const login = loginRequest => async dispatch => {
             payload: error.response.data
         });
     }
-}
+};
+
+export const logout = () => dispatch => {
+    localStorage.removeItem("jwtToken");
+    dispatch({
+        type: SET_CURRENT_USER,
+        payload: {}
+    });
+};

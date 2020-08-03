@@ -1,6 +1,4 @@
 import { SET_CURRENT_USER } from "../actions/tyes";
-import { act } from "react-dom/test-utils";
-
 const initialState = {
     user: {},
     validToken: false
