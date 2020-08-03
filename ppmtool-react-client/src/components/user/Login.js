@@ -28,7 +28,7 @@ class Login extends Component {
             this.setState({errors: nextProps.errors});
         }
         if(nextProps.user.validToken) {
-            this.props.history("/dashboard");
+            this.props.history.push("/dashboard");
         }
     }
 
