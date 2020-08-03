@@ -20,7 +20,7 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        if(this.props.user.validToken) {
+        if(this.props.user && this.props.user.validToken) {
             this.props.history.push("/dashboard");
         }
     }
